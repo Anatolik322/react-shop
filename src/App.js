@@ -1,10 +1,16 @@
 
 import './App.css';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from './services/cartSlice';
 
 function App() {
+
+  const dispatch = useDispatch();
+  
+  const cart = useSelector(state => state.cartReducer.cartArr);
+  console.log(cart)
   return (
-    <div className="App">
+    <div className="App" onClick={() => dispatch(addToCart('test'))}>
      App
     </div>
   );
