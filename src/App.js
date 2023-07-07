@@ -2,7 +2,7 @@
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from './services/cartSlice';
-import { useGetGoodsQuery } from './services/shop';
+import { useGetGoodsQuery, useGetByCategoryQuery } from './services/shop';
 import Header from './components/header/Header';
 import Footer from './components/footer';
 import ProductList from './components/productList';
@@ -11,6 +11,8 @@ import ProductList from './components/productList';
 function App() {
 
   const {data, isSuccess } = useGetGoodsQuery();
+  const {data: d, isSuccess: s} = useGetByCategoryQuery('jewelery');
+  s && console.log(d);
   isSuccess && console.log(data);
   const dispatch = useDispatch();
   
