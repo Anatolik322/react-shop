@@ -6,6 +6,7 @@ import { useGetGoodsQuery, useGetByCategoryQuery } from './services/shop';
 import Header from './components/header/Header';
 import Footer from './components/footer';
 import ProductList from './components/productList';
+import Slider from './components/slider';
 
 
 function App() {
@@ -20,11 +21,10 @@ function App() {
   console.log(cart)
   return (
     <div className="App">
-     <Header/>
-    
+      <Header/>
+      <Slider></Slider>
       <ProductList/>
-
-     <Footer/>
+      <Footer/>
     </div>
     
   );
