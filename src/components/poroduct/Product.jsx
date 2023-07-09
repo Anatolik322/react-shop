@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bulma/css/bulma.min.css';
-import { Card, Content, Heading } from 'react-bulma-components';
+import { Card, Content, Heading, Button } from 'react-bulma-components';
 
 function Product({img, title, descr, category, price}) {
 
@@ -15,6 +15,7 @@ function Product({img, title, descr, category, price}) {
         <Heading size={4}>{title}</Heading>
         <Card.Header style={{textAlign: 'rigth'}}>{price}</Card.Header>
         </Content>
+        <Button color={'dark'}>Add to cart</Button>
       </Card.Content>
     </Card>
   )

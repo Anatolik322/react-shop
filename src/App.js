@@ -19,13 +19,11 @@ function App() {
   const cart = useSelector(state => state.cartReducer.cartArr);
   console.log(cart)
   return (
-    <div className="App" onClick={() => dispatch(addToCart({
-      title: 'Test title',
-      price: 'Test price'
-    }))}>
-     App
+    <div className="App">
      <Header/>
-     <ProductList/>
+    
+      <ProductList/>
+
      <Footer/>
     </div>
     
