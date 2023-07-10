@@ -8,7 +8,7 @@ export const shopApi = createApi({
             query: () => '/products',
         }),
         getByCategory: builder.query({
-            query: (category) => `/products/category/${category}`,
+            query: (category) => `/products${category ? `/category/${category}`: ''}`,
         })
     }),
 })

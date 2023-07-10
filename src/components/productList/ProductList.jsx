@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Product from '../poroduct';
 import { Dropdown, Icon } from 'react-bulma-components';
 import { useGetGoodsQuery, useGetByCategoryQuery } from '../../services/shop';
 import "./ProductLIst.scss"
 
 function ProductList() {
-  const { isSuccess, data} = useGetGoodsQuery()
- 
+  //const { isSuccess, data} = useGetGoodsQuery()
+  
+  const [category, setCategory] = useState(null);
+  const {isSuccess, isLoading, data} = useGetByCategoryQuery(category);
+ // s&& console.log(d )
+
   return (
     <>
       <div className="filter">
           <h3> Category: </h3> 
-          <Dropdown label="Category:" closeOnSelect={false} icon={<Icon><i aria-hidden="false" className="fas fa-angle-down"/></Icon>}>
-            <Dropdown.Item >mens</Dropdown.Item>
-            <Dropdown.Item renderAs="a" value="woman">woman</Dropdown.Item>
-            <Dropdown.Item renderAs="a" value="jewelary">jewelery</Dropdown.Item>
+          <Dropdown label="Category:" closeOnSelect={true} color={'dark'}icon={<Icon>V</Icon>} onChange={(e) => setCategory(e)}>
+          <Dropdown.Item renderAs="a" value={null}>all</Dropdown.Item>
+            <Dropdown.Item renderAs="a" value="electronics">electronics</Dropdown.Item>
+            <Dropdown.Item renderAs="a" value="jewelery">jewelery</Dropdown.Item>
+            <Dropdown.Item renderAs="a" value="jewelery">jewelery</Dropdown.Item>
           </Dropdown>
         </div>
       <div className='product_list'>
-        {isSuccess && data.map(e => {
+        {isLoading ? <h2>Loading...</h2>:
+        isSuccess && data.map(e => {
           return <Product 
           img={e.image}
           title={e.title}
