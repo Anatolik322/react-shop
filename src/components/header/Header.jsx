@@ -4,15 +4,9 @@ import {Navbar, Dropdown, Icon} from "react-bulma-components"
 function Header() {
   return (
     <div>
-      <Navbar color="dark"> 
-        <Navbar.Item style={{color: '#fff'}}> React-Shop </Navbar.Item>
-        <Dropdown label="Category:" closeOnSelect={false} icon={<Icon><i aria-hidden="false" className="fas fa-angle-down"/></Icon>}>
-          <Dropdown.Item >mens</Dropdown.Item>
-          <Dropdown.Item renderAs="a" value="woman">woman</Dropdown.Item>
-          <Dropdown.Item renderAs="a" value="jewelary">jewelery</Dropdown.Item>
-        </Dropdown>
+      <Navbar color="success" style={{height:'110px'}}> 
+        <Navbar.Brand style={{color: '#fff'}}> React-Shop </Navbar.Brand>
       </Navbar>
-      
     </div>
   )
 }

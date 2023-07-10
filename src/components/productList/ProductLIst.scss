@@ -3,8 +3,8 @@
     width: 100%;
     height: fit-content;
     display: flex;
-    align-content: flex-start;
-   
+    align-content: space-around;
+    justify-content: space-around;
     gap: 3rem;
     flex-wrap: wrap;
 }
