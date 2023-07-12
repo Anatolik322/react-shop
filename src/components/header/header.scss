@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 110px;
+    img{
+        width: 65px;
+        height: 65px;
+        cursor: pointer;
+    }
+}
+
+.header_text{
+    font-size: 45px;
+}
