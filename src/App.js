@@ -12,12 +12,6 @@ import useCart from './hooks/useCart';
 
 function App() {
 
-  const {data, isSuccess } = useGetGoodsQuery();
-  const {data: d, isSuccess: s} = useGetByCategoryQuery('jewelery');
-  s && console.log(d);
-  isSuccess && console.log(data);
-  const dispatch = useDispatch();
-  
   const cart = useSelector(state => state.cartReducer.cartArr);
   const state = useCart()
   console.log(state)

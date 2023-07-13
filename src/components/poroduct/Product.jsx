@@ -4,9 +4,10 @@ import useAddToCart from '../../hooks/useAddToCart';
 import { Card, Content, Heading, Button } from 'react-bulma-components';
 
 function Product({img, title, descr, category, price}) {
+  const { ref, active, toggle } = useAddToCart({img, title, descr, category, price});
 
   return (
-    <Card style={{ width: 300, margin: 0 }}>
+    <Card style={{ width: 300, margin: 0 }} ref = {ref}>
       <Card.Image
         size="4by3"
         src={img}
@@ -16,7 +17,7 @@ function Product({img, title, descr, category, price}) {
         <Heading size={4}>{title}</Heading>
         <Card.Header style={{textAlign: 'rigth'}}>{price}</Card.Header>
         </Content>
-        <Button color={'dark'}>Add to cart</Button>
+        <Button color={'dark'} onClick={toggle}>Add to cart</Button>
       </Card.Content>
     </Card>
   )
