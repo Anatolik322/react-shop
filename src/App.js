@@ -7,6 +7,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer';
 import ProductList from './components/productList';
 import Slider from './components/slider';
+import useCart from './hooks/useCart';
 
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
   const dispatch = useDispatch();
   
   const cart = useSelector(state => state.cartReducer.cartArr);
-  console.log(cart)
+  const state = useCart()
+  console.log(state)
   return (
     <div className="App">
       <Header/>

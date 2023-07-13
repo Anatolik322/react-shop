@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bulma/css/bulma.min.css';
+import useAddToCart from '../../hooks/useAddToCart';
 import { Card, Content, Heading, Button } from 'react-bulma-components';
 
 function Product({img, title, descr, category, price}) {
