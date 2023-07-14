@@ -12,9 +12,6 @@ import useCart from './hooks/useCart';
 
 function App() {
 
-  const cart = useSelector(state => state.cartReducer.cartArr);
-  const state = useCart()
-  console.log(state)
   return (
     <div className="App">
       <Header/>
