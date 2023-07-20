@@ -29,11 +29,15 @@ function ProductList() {
       <div className='product_list'>
         {isLoading || isFetching ? <h2>Loading...</h2>:
         isSuccess && data.products.map(e => {
+          console.log(e.id)
           return <Product 
           img={e.images[0]}
           title={e.title}
           price={e.price}
-          descr={e.description}/>
+          descr={e.description}
+          key={Math.random()}
+          id={e.id}
+          isInCart={false}/>
         })}
       </div>
     </>
