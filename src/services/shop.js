@@ -9,8 +9,11 @@ export const shopApi = createApi({
         }),
         getByCategory: builder.query({
             query: (category) => `/products${category ? `/category/${category}`: ''}`,
+        }),
+        getById: builder.query({
+          query: (id) =>  `/products/${id}`
         })
     }),
 })
 
-export const {useGetGoodsQuery, useGetByCategoryQuery} = shopApi
+export const {useGetGoodsQuery, useGetByCategoryQuery, useGetByIdQuery} = shopApi

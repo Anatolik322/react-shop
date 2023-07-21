@@ -14,7 +14,8 @@ function Cart() {
       <Header></Header>
       <div className='product_list'>
         {cart.length > 0 && cart.map(e => {
-          totalPrice+=e.price
+          totalPrice+=e.price;
+          totalPrice*=e.quantity
         return <Product 
           img={e.img}
           title={e.title}
@@ -22,7 +23,8 @@ function Cart() {
           descr={e.descr}
           isInCart={true}
           id={e.id}
-          key={Math.random()}/>
+          key={Math.random()}
+          quantity={e.quantity}/>
         })}
       </div>
       <h3> Total: {totalPrice}</h3>
