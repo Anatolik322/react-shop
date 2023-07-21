@@ -4,6 +4,7 @@ import useCart from '../../hooks/useCart';
 import Product from '../poroduct';
 import "../productList/ProductLIst.scss"
 import Footer from '../footer/Footer';
+import './cart.scss'
 function Cart() {
 
   const cart = useCart()
