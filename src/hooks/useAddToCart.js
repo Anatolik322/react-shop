@@ -6,6 +6,7 @@ function useAddToCart(obj = {}) {
     const dispatch = useDispatch();
     
     const [ active, setActive ] = useState(false);
+    
     function toggle() {
         setActive(!active);
     }
