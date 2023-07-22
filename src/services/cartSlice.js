@@ -25,16 +25,15 @@ export const cartSlice = createSlice({
             const idArray = state.cartArr.map(item => item.id);
 
             if (idArray.includes(action.payload)) {
+
                 state.cartArr.forEach(item => {
-                    if (item.id === action.payload && item.quantity > 1) {
-                        item.quantity -= 1
-                    } else {
+                    if (item.id === action.payload && item.quantity === 1) {
                         state.cartArr = state.cartArr.filter(e => {
-                            if (e.id === action.payload) {
-                                e.quantity -= 1
-                            }
                             return e.id !== action.payload
                         })
+                       
+                    } else if(item.id === action.payload) {
+                        item.quantity -= 1
                     }
                 });
             }
@@ -47,3 +46,7 @@ export const cartSlice = createSlice({
 
 export const {addToCart, removeFromCart, clearState} = cartSlice.actions
 export default cartSlice.reducer
+
+// if (e.id === action.payload) {
+//     e.quantity -= 1
+// }
