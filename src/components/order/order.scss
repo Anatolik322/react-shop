@@ -1,0 +1,13 @@
+.order_page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    form{
+        width: 30%;
+        margin: 0 auto;
+    }
+    .order_footer{
+        top: 100%;
+    }
+}
