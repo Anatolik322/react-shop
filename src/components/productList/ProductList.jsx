@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Product from '../poroduct';
+import LoadingImg from '../../img/loading_cart.gif'
 import { Dropdown, Icon } from 'react-bulma-components';
-import { useGetGoodsQuery, useGetByCategoryQuery } from '../../services/shop';
+import { useGetByCategoryQuery } from '../../services/shop';
 import "./ProductLIst.scss"
 
 function ProductList() {
@@ -9,7 +10,8 @@ function ProductList() {
   
   const [category, setCategory] = useState(null);
   const {isSuccess, isFetching, isLoading, data} = useGetByCategoryQuery(category);
- isSuccess && console.log(data);
+ isLoading && console.log('lading', isFetching);
+ isFetching && console.log('fwt', isLoading)
   return (
     <>
       <div className="filter">
@@ -27,11 +29,10 @@ function ProductList() {
           </Dropdown>
         </div>
       <div className='product_list'>
-        {isLoading || isFetching ? <h2>Loading...</h2>:
+        {isLoading || isFetching ? <img src={LoadingImg}></img>:
         isSuccess && data.products.map(e => {
-          console.log(e.id)
           return <Product 
-          img={e.images[0]}
+          img={isLoading || isFetching ? LoadingImg : e.images[0]}
           title={e.title}
           price={e.price}
           descr={e.description}

@@ -14,7 +14,7 @@ function Product({id, img, title, descr, category, price, isInCart, quantity=1})
   return (
     <Card style={{ width: 300,   margin: 0 }}  className='card'>
       <div>
-      <Card.Image
+      <Card.Image 
         size="4by4"
         src={img}
       />

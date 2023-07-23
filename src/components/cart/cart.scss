@@ -6,4 +6,23 @@
     h3{
         align-self: center;
     }
+    .content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 }
+
+.cart_btn{
+    width: 250px;
+}
+
+.order{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    justify-content:flex-start;
+    align-items: center;
+}
+

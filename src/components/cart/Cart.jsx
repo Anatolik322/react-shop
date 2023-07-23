@@ -8,6 +8,7 @@ import './cart.scss'
 import { Button } from 'react-bulma-components';
 import { useDispatch } from 'react-redux';
 import { clearState } from '../../services/cartSlice';
+import { Link } from 'react-router-dom';
 function Cart() {
 
   const 
@@ -18,27 +19,33 @@ function Cart() {
   return (
     <div className='cart'>
       <Header></Header>
-      <div className='product_list'>
-        {
-          cart.length > 0 && cart.map(e => {
-            totalPrice+=e.price;
-            totalPrice*=e.quantity
-            return (
-              <Product 
-              img={e.img}
-              title={e.title}
-              price={e.price}
-              descr={e.descr}
-              isInCart={true}
-              id={e.id}
-              key={Math.random()}
-              quantity={e.quantity}/>
-            )
-          })
-        }
+      <div className="content">
+        <div className='product_list'>
+          {
+            cart.length > 0 && cart.map(e => {
+              totalPrice+=e.price;
+              totalPrice*=e.quantity
+              return (
+                <Product 
+                img={e.img}
+                title={e.title}
+                price={e.price}
+                descr={e.descr}
+                isInCart={true}
+                id={e.id}
+                key={Math.random()}
+                quantity={e.quantity}/>
+              )
+            })
+          }
+        </div>
+        <div className="order">
+          <Button color={'danger'} className='cart_btn' onClick={() => (dispatch( clearState() ))}>Remove all</Button>
+          <h3> Total: {totalPrice}</h3>
+          <Link to={'/order'}><Button color={'success'} className='cart_btn'>Make order</Button></Link> 
+        </div>
       </div>
-      <h3> Total: {totalPrice}</h3>
-      <Button color={'dark'} onClick={() => (dispatch( clearState() ))}>Remove all</Button>
+      
       <Footer></Footer>
     </div>
   )
