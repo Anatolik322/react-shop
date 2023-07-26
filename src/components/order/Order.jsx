@@ -7,8 +7,15 @@ import { Form, Button } from 'react-bulma-components';
 
 function Order() {
   const [username, setUsername] = useState('bulma');
-  const [email, setEmail] = useState('hello@');
-  const [number, setNumber] = useState('0972315530')
+  const [email, setEmail] = useState('hello@gmail.com');
+  const [number, setNumber] = useState('0972315530');
+  const [isValid, setIsValid] = useState(true);
+
+  const validateEmail = () => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsValid(emailPattern.test(email));
+  };
+
   return (
     <div className='order_page'>
         <Header></Header>
@@ -49,8 +56,9 @@ function Order() {
               }}
             />
           </Form.Control>
+          {!isValid &&<Form.Help color={'danger'}>Check Email</Form.Help>}
         </Form.Field>
-        <Button color="link">Submit</Button>
+        <Button color="link" onClick={validateEmail}>Submit</Button>
         <Button color="danger">Cancel</Button>
       </form>
       <Footer className="order_footer"/>
