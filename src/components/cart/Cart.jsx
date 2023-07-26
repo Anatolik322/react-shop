@@ -41,7 +41,7 @@ function Cart() {
         </div>
         <div className="order">
           <Button color={'danger'} className='cart_btn' onClick={() => (dispatch( clearState() ))}>Remove all</Button>
-          <h3> Total: {totalPrice}</h3>
+          <h3> Total: {totalPrice}$</h3>
           <Link to={'/order'}><Button color={'success'} className='cart_btn'>Make order</Button></Link> 
         </div>
       </div>

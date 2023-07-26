@@ -54,14 +54,21 @@ function ProductList() {
           isInCart={false}/>
         })}
       </div>
-      <Pagination
+      {category == null && <Pagination
         className='pagination'
         current={page}
         showFirstLast
-        onChange={(e) => {setPage(e); console.log(page)}}
+        onChange={(e) => {
+          setPage(e);
+          window.scrollTo({
+            top: 700,
+            left: 0,
+            behavior: 'smooth' 
+          });
+        }}
         total={5}
         align='center'
-      />
+      />}
      
     </>
   )

@@ -4,6 +4,7 @@ import Footer from '../footer'
 import "./order.scss"
 import { useState } from 'react';
 import { Form, Button } from 'react-bulma-components';
+import { Link } from 'react-router-dom';
 
 function Order() {
   const [username, setUsername] = useState('bulma');
@@ -60,7 +61,7 @@ function Order() {
           {!isValid &&<Form.Help color={'danger'}>Check Email</Form.Help>}
         </Form.Field>
         <Button color="link" >Submit</Button>
-        <Button color="danger">Cancel</Button>
+        <Button color="danger"> <Link to={'/'} style={{color: '#fff'}}> Cancel </Link></Button>
       </form>
       <Footer className="order_footer"/>
     </div>
