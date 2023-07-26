@@ -12,8 +12,11 @@ export const shopApi = createApi({
         }),
         getById: builder.query({
           query: (id) =>  `/products/${id}`
+        }),
+        getByPagination: builder.query({
+            query: (page) =>  `/products?limit=12&skip=${page ? page +'0': '10'}`  
         })
     }),
 })
 
-export const {useGetGoodsQuery, useGetByCategoryQuery, useGetByIdQuery} = shopApi
+export const {useGetGoodsQuery, useGetByCategoryQuery, useGetByIdQuery, useGetByPaginationQuery} = shopApi

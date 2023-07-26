@@ -16,6 +16,16 @@ code {
     monospace;
 }
 
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+Link{
+  text-decoration: none;
+  color: #fff;
+}
+
 #root{
   height: 100%;
 }

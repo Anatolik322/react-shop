@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import Product from '../poroduct';
 import LoadingImg from '../../img/loading_cart.gif'
-import { Dropdown, Icon } from 'react-bulma-components';
-import { useGetByCategoryQuery } from '../../services/shop';
+import { Dropdown, Icon, Pagination } from 'react-bulma-components';
+import { useGetByCategoryQuery, useGetByPaginationQuery } from '../../services/shop';
 import "./ProductLIst.scss"
+import Modal from '../modal/Modal';
 
 function ProductList() {
-  //const { isSuccess, data} = useGetGoodsQuery()
+  
   
   const [category, setCategory] = useState(null);
+  const [page, setPage] = useState(1);
   const {isSuccess, isFetching, isLoading, data} = useGetByCategoryQuery(category);
- isLoading && console.log('lading', isFetching);
- isFetching && console.log('fwt', isLoading)
+  const { isSuccess: pageS, data: pageD, isFetching: pageFetch, isLoading: pageLoad} = useGetByPaginationQuery(page)
   return (
     <>
       <div className="filter">
@@ -29,7 +30,19 @@ function ProductList() {
           </Dropdown>
         </div>
       <div className='product_list'>
-        {isLoading || isFetching ? <img src={LoadingImg}></img>:
+        {category == null ?
+        pageLoad || pageFetch ? <img src={LoadingImg}></img>:
+        pageS && pageD.products.map(e => {
+          return <Product
+          img={e.images[0]}
+          title={e.title}
+          price={e.price}
+          descr={e.description}
+          key={Math.random()}
+          id={e.id}
+          isInCart={false}/>
+        }):
+        isLoading || isFetching ? <img src={LoadingImg}></img>:
         isSuccess && data.products.map(e => {
           return <Product 
           img={isLoading || isFetching ? LoadingImg : e.images[0]}
@@ -41,6 +54,15 @@ function ProductList() {
           isInCart={false}/>
         })}
       </div>
+      <Pagination
+        className='pagination'
+        current={page}
+        showFirstLast
+        onChange={(e) => {setPage(e); console.log(page)}}
+        total={5}
+        align='center'
+      />
+     
     </>
   )
 }
