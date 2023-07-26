@@ -52,13 +52,14 @@ function Order() {
             <Form.Input
               value={email}
               onChange={(e) => {
+                validateEmail()
                 return setEmail(e.target.value);
               }}
             />
           </Form.Control>
           {!isValid &&<Form.Help color={'danger'}>Check Email</Form.Help>}
         </Form.Field>
-        <Button color="link" onClick={validateEmail}>Submit</Button>
+        <Button color="link" >Submit</Button>
         <Button color="danger">Cancel</Button>
       </form>
       <Footer className="order_footer"/>
