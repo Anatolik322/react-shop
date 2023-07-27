@@ -20,7 +20,7 @@ function Cart() {
     <div className='cart'>
       <Header></Header>
       <div className="content">
-        <div className='product_list'>
+        <div className='product_list_cart'>
           {
             cart.length > 0 && cart.map(e => {
               totalPrice+=e.price;

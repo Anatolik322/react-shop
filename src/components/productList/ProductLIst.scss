@@ -1,4 +1,17 @@
 .product_list{
+    // margin-top: 3rem;
+    // margin-left: 3rem;
+    margin: 3rem auto;
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.product_list_cart{
     margin-top: 3rem;
     margin-left: 3rem;
     width: 70%;
