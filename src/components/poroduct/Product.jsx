@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
-import 'bulma/css/bulma.min.css';
-import "./product.scss"
-import {useDispatch} from "react-redux"
-import { removeFromCart, addToCart } from '../../services/cartSlice';
-import { Card, Content, Heading, Button } from 'react-bulma-components';
-import Modal from '../modal/Modal';
-
+import {
+  useDispatch,
+  useState,
+  removeFromCart,
+  addToCart,
+  Card,
+  Content,
+  Heading,
+  Button,
+  Modal
+} from './imports'
 
 
 function Product({id, img, title, descr, category, price, isInCart, quantity=1}) {

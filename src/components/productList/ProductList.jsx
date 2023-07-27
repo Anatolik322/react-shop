@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
-import Product from '../poroduct';
-import LoadingImg from '../../img/loading_cart.gif'
-import { Dropdown, Icon, Pagination } from 'react-bulma-components';
-import { useGetByCategoryQuery, useGetByPaginationQuery } from '../../services/shop';
-import "./ProductLIst.scss"
-import Modal from '../modal/Modal';
+import {
+  useGetByCategoryQuery,
+  useGetByPaginationQuery,
+  useState,
+  Product,
+  LoadingImg,
+  Dropdown,
+  Icon,
+  Pagination
+} from './imports'
+
 
 function ProductList() {
-  
   
   const [category, setCategory] = useState(null);
   const [page, setPage] = useState(1);

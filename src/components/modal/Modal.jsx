@@ -1,7 +1,7 @@
-import React from 'react'
-import { Button } from 'react-bulma-components';
-import { Link } from 'react-router-dom';
-import "./modal.scss"
+import {
+  Button,
+  Link
+} from './imports'
 
 function Modal({ isOpen, onClose }) {
     if (!isOpen) return null;
@@ -16,6 +16,6 @@ function Modal({ isOpen, onClose }) {
         </div>
       </div>
     );
-  };
+};
 
 export default Modal;

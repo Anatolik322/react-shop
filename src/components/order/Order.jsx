@@ -1,10 +1,12 @@
-import React from 'react'
-import Header from '../header/Header'
-import Footer from '../footer'
-import "./order.scss"
-import { useState } from 'react';
-import { Form, Button } from 'react-bulma-components';
-import { Link } from 'react-router-dom';
+import {
+  Header,
+  Footer,
+  useState,
+  Form,
+  Button,
+  Link
+} from './imports'
+
 
 function Order() {
   const [username, setUsername] = useState('bulma');
@@ -32,6 +34,7 @@ function Order() {
               }}
             />
           </Form.Control>
+          {username.length == 0 && <Form.Help color={'danger'}>Input name</Form.Help>}
         </Form.Field>
         
         <Form.Field>
@@ -45,6 +48,7 @@ function Order() {
               }}
             />
           </Form.Control>
+          {number.length !== 10 && <Form.Help color={'danger'}>Check phone number</Form.Help>}
         </Form.Field>
 
         <Form.Field>

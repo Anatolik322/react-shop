@@ -1,9 +1,9 @@
-import React from 'react'
-import { Block, Columns } from 'react-bulma-components'
-import './footer.scss'
+import {
+  Block,
+  Columns
+} from './imports'
 
 function Footer() {
-  console.log(window.innerWidth, window.outerWidth)
   return (
    <Block className='footer'>
       <Columns>
@@ -18,11 +18,13 @@ function Footer() {
               </li>
           </ul>
         </Columns.Column>
-        {window.outerWidth > 810 && <Columns.Column style={{color: '#fff', textAlign: 'left'}}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, ab,
-          saepe facilis dicta sed quaerat delectus quas vitae sequi modi sunt nam quasi,
-          incidunt itaque. Consequatur aliquam dicta ducimus omnis.
-        </Columns.Column>}
+        {window.outerWidth > 810 && 
+          <Columns.Column style={{color: '#fff', textAlign: 'left'}}>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, ab,
+            saepe facilis dicta sed quaerat delectus quas vitae sequi modi sunt nam quasi,
+            incidunt itaque. Consequatur aliquam dicta ducimus omnis.
+          </Columns.Column>
+        }
       </Columns>
    </Block>
   )
